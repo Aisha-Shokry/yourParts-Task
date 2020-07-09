@@ -29,7 +29,7 @@ export default class LoadMoreView extends Component {
             <div>
                 {loadMoreDevices}
                 {this.state.visible < this.props.Devices.length &&
-           <button onClick={this.loadMore} type="button" className="load-more">Load more</button>}
+           <button onClick={this.loadMore} className="load-more">Load more</button>}
         
             </div>
         )
