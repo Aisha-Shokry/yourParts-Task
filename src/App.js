@@ -9,6 +9,8 @@ import MobileDetails from './components/pages/MobileDetails';
 import promiseMW from 'redux-promise';
 import ExplorePage from './components/pages/ExplorePage';
 import SettingsPage from './components/pages/SettingsPage';
+import Myfile from './components/pages/Compare';
+import ComparisonTable from './components/pages/ComparisonTable';
 const createStoreWM = applyMiddleware(promiseMW)(createStore);
 const App = () => {
   return (
@@ -18,6 +20,9 @@ const App = () => {
 
           <Switch>
             <Route exact path="/" component={ExplorePage} />
+            <Route exact path="/tt" component={Myfile} />
+            <Route exact path="/Comparison" component={ComparisonTable} />
+
             {/* <Route exact path="/s" component={SettingsPage} /> */}
             <Route exact path="/mobiles/:id" component={MobileDetails} />
 

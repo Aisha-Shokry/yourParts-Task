@@ -17,9 +17,9 @@ export default class LoadMoreView extends Component {
     
     
     render() {
-        let loadMoreDevices= this.props.Devices.slice(0, this.state.visible).map((device, index) => {
+        let loadMoreDevices= this.props.Devices.slice(0, this.state.visible).map((device) => {
             return (
-              <div className="tile fade-in" key={device.id}>
+              <div key={device.id}>
                <img src={device.webformatURL} alt={device.tags} />
               </div>
             );

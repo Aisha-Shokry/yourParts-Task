@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { getDevices } from '../../redux/actions/rootActions';
 import InfinityScrollView from '../sections/InfinityScrollView';
 import LoadMoreView from '../sections/LoadMoreView';
+import Myfile from './Compare'
 class ExplorePage extends Component {
     constructor(props){
         super(props);
@@ -36,7 +37,8 @@ class ExplorePage extends Component {
 {this.props.Devices.list?
 // this.props.changed?
         // <InfinityScrollView  size={this.state.size} Devices={this.props.Devices.list}/> :
-        <LoadMoreView Devices={this.props.Devices.list} />
+        // <LoadMoreView Devices={this.props.Devices.list} />
+        <Myfile Devices={this.props.Devices.list} />
         : <p>No Devices</p>}
       </div>
     );
