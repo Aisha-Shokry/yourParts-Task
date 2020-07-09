@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import rootReducers from './redux/reducers/rootReducer';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import MobileDetails from './components/pages/MobileDetails';
+import promiseMW from 'redux-promise';
+import ExplorePage from './components/pages/ExplorePage';
+import SettingsPage from './components/pages/SettingsPage';
+const createStoreWM = applyMiddleware(promiseMW)(createStore);
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={createStoreWM(rootReducers)}>
+      {/* <Header /> */}
+      <Router>         
+
+          <Switch>
+            <Route exact path="/" component={ExplorePage} />
+            {/* <Route exact path="/s" component={SettingsPage} /> */}
+            <Route exact path="/mobiles/:id" component={MobileDetails} />
+
+          </Switch>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;
