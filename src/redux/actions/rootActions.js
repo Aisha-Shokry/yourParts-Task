@@ -23,7 +23,6 @@ export function getMobileDetails(id = 0) {
       `https://pixabay.com/api/?key=11295366-e4d7e8eab0c39f30afd0e7330&q=yellow+flowers&image_type=photo&pretty=true&per_page=100&id=${id}`
     )
     .then((res) => {
-      console.log(res);
       return res.data.hits;
     })
     .catch((err) => {

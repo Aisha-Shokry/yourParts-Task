@@ -3,36 +3,30 @@
 }
 
 /******************* NavBar ****************************/
-.nav-tabs {
-  display: flex;
-  justify-content: center !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  padding: 10px;
+.navbar-brand img {
+  width: 200px !important;
 }
-.nav {
+.navbar-brand {
+  padding-left: 200px;
+  padding-top: 25px;
+}
+
+.navbar {
   background-color: transparent;
   padding: 0px !important;
+  z-index: 999;
   text-align: center;
-  margin-bottom: 35px !important;
+  padding-right: 200px !important;
+  margin-bottom: 35px;
+}
+.navbar-collapse {
+  border-bottom: 2px solid #ececec !important;
+}
+.navbar-nav {
+  margin: auto !important;
 }
 
-.nav-tabs .nav-link.active {
-  color: #2c9cb7 !important;
-  text-decoration: none;
-  border-bottom: 5px solid #2c9cb7;
-  border-left: none !important;
-  border-right: none !important;
-}
-.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
-  box-shadow: none !important;
-  outline: none !important;
-  border-left: none !important;
-  border-right: none !important;
-}
-
-.nav-tabs .nav-link {
+.navbar-nav a {
   margin-bottom: -3px;
   padding: 8px 35px 10px 35px;
   font-size: 17px;
@@ -46,6 +40,50 @@
   text-align: center;
 }
 
+.navbar-toggler {
+  margin: 10px;
+  background-color: #ffffff;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-brand {
+    padding-left: 10px;
+    width: 120px;
+  }
+  .navbar {
+    padding-right: 10px !important;
+    background-color: #fff !important;
+    z-index: 999 !important;
+  }
+  .navbar-nav a {
+    border-bottom: none !important;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1300px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+  }
+  .navbar-nav a {
+    font-size: 15px !important;
+  }
+  .navbar-brand {
+    padding-left: 50px;
+    padding-top: 25px;
+  }
+}
 
 /******************* ComparePage ****************************/
 .compare-page button,

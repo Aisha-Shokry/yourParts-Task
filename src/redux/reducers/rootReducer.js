@@ -1,13 +1,12 @@
 import { combineReducers } from "redux";
-import Devices from "./Devices";
-import ChangeView from "./ChangeView";
-import Details from "./Details";
-
+import Devices from "./DevicesReducer";
+import ChangeView from "./ChangeViewReducer";
+import Details from "./DetailsReducer";
 
 const rootReducer = combineReducers({
   Devices,
   changed: ChangeView,
-  details:Details
+  details: Details,
 });
 
 export default rootReducer;

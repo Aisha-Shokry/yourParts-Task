@@ -14,7 +14,6 @@ class SettingsPage extends Component {
   changeDevicesView = () => {
     this.props.changeView();
     if (this.props.changed !== undefined) {
-      console.log(this.props.changed);
     } else {
       return null;
     }

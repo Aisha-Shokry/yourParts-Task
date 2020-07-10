@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 import { getMobileDetails } from "../../redux/actions/rootActions";
 import { Container, Row } from "react-bootstrap";
 class MobileDetails extends Component {
-
   componentDidMount() {
     this.props.getMobileDetails(this.props.match.params.id);
   }
@@ -12,7 +11,6 @@ class MobileDetails extends Component {
   render() {
     return (
       <Container>
-        {console.log(this.props.details)}
 
         {this.props.details.details ? (
           this.props.details.details.map((item) => {

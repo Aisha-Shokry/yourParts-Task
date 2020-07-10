@@ -40,16 +40,14 @@ const MultiValue = (props) => (
 );
 
 const animatedComponents = makeAnimated();
-class Compare extends Component {
+class ComparePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      optionSelected: [],
+      optionSelected: [] /* Array Of Selected Devices */,
     };
   }
-  componentDidMount() {
-    console.log(this.props.Devices);
-  }
+
   handleChange = (selected) => {
     this.setState({
       optionSelected: selected,
@@ -66,7 +64,7 @@ class Compare extends Component {
       return null;
     }
     return (
-      <Container className='compare-page'>
+      <Container className="compare-page">
         <p>You can search and choose any 2 devices and compare between them</p>
         <Row>
           <Col sm={12} md={6}>
@@ -81,7 +79,7 @@ class Compare extends Component {
               // allowSelectAll={true}
               value={this.state.optionSelected}
             />
-            <Button className='mt-4'>
+            <Button className="mt-4">
               <Link
                 to={{
                   pathname: "/Comparison",
@@ -105,4 +103,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ getDevices }, dispatch);
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Compare);
+export default connect(mapStateToProps, mapDispatchToProps)(ComparePage);

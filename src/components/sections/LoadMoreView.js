@@ -43,7 +43,7 @@ export default class LoadMoreView extends Component {
       <Container className="loadMore-Page">
         <Row>{loadMoreDevices}</Row>
         {this.state.visible < this.props.Devices.length && (
-          <div style={{ textAlign: "center" }} className="mt-4">
+          <div style={{ textAlign: "center" }} className="mt-4 mb-4">
             <Button onClick={this.loadMore} className="load-more">
               Load more
             </Button>

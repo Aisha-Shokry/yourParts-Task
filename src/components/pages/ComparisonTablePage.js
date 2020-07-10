@@ -1,13 +1,18 @@
 import React, { Component } from "react";
+
+/* Redux Connection */
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getDevices } from "../../redux/actions/rootActions";
+
+/* Bootstrap */
 import { Table, Container } from "react-bootstrap";
+
 class ComparisonTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comparisonArray: [],
+      comparisonArray: [] /*Array of Selected Devices*/,
     };
   }
   componentDidMount() {
@@ -32,8 +37,10 @@ class ComparisonTable extends Component {
   render() {
     return (
       <Container>
-        <h4 className='pb-4'>Here's The comparison between the devices you have chosen</h4>
-        <Table striped bordered hover >
+        <h4 className="pb-4">
+          Here's The comparison between the devices you have chosen
+        </h4>
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>Device #</th>

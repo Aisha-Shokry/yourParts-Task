@@ -1,28 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
-import rootReducer from './redux/reducers/rootReducer';
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
-import promiseMiddleware from 'redux-promise';
+/* Redux Connections */
+import rootReducer from "./redux/reducers/rootReducer";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
+import promiseMiddleware from "redux-promise";
 
+/* LocalStorage Functions */
+import { loadState } from "./redux/LocalStorage";
+import { saveState } from "./redux/LocalStorage";
+
+const persistedState = loadState();
 const middleware = [thunk];
 const store = createStore(
   rootReducer,
+  persistedState,
   composeWithDevTools(applyMiddleware(promiseMiddleware, ...middleware))
 );
+
+store.subscribe(() => {
+  saveState({
+    changed: store.getState().changed,
+    Devices: store.getState().Devices,
+  });
+});
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
