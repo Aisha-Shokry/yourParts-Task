@@ -1,8 +1,13 @@
-import { combineReducers } from 'redux';
-import {Devices} from './Devices';
-import {ChangeView} from './ChangeView';
+import { combineReducers } from "redux";
+import Devices from "./Devices";
+import ChangeView from "./ChangeView";
+import Details from "./Details";
 
-export default combineReducers({
+
+const rootReducer = combineReducers({
   Devices,
-  // changed:ChangeView
+  changed: ChangeView,
+  details:Details
 });
+
+export default rootReducer;

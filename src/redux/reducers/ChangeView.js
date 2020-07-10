@@ -1,11 +1,15 @@
-// export function ChangeView (state = false, action) {
+const ChangeView = (state = false, action) => {
+  function toggle(state) {
+    var newState = Object.assign({}, state);
+    newState.changed = !newState.changed;
+    return newState;
+  }
+  switch (action.type) {
+    case "CHANGE_VIEW":
+      return toggle(state);
+    default:
+      return state;
+  }
+};
 
-//   console.log(action);
-//   switch (action.type) {
-//     case 'CHANGE_VIEW':
-//       return { ...state, changed: action.payload };
-   
-//     default:
-//       return state;
-//   }
-// };
+export default ChangeView;

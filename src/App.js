@@ -1,35 +1,29 @@
-import React from 'react';
-import './App.css';
-import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
-import rootReducers from './redux/reducers/rootReducer';
-import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MobileDetails from './components/pages/MobileDetails';
-import promiseMW from 'redux-promise';
-import ExplorePage from './components/pages/ExplorePage';
-import SettingsPage from './components/pages/SettingsPage';
-import Myfile from './components/pages/Compare';
-import ComparisonTable from './components/pages/ComparisonTable';
-const createStoreWM = applyMiddleware(promiseMW)(createStore);
-const App = () => {
-  return (
-    <Provider store={createStoreWM(rootReducers)}>
-      {/* <Header /> */}
-      <Router>         
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-          <Switch>
-            <Route exact path="/" component={ExplorePage} />
-            <Route exact path="/tt" component={Myfile} />
-            <Route exact path="/Comparison" component={ComparisonTable} />
+/*Components*/
 
-            {/* <Route exact path="/s" component={SettingsPage} /> */}
-            <Route exact path="/mobiles/:id" component={MobileDetails} />
+import MobileDetails from "./components/pages/MobileDetails";
+import ExplorePage from "./components/pages/ExplorePage";
+import SettingsPage from "./components/pages/SettingsPage";
+import Compare from "./components/pages/Compare";
+import ComparisonTable from "./components/pages/ComparisonTable";
 
-          </Switch>
-      </Router>
-    </Provider>
-  );
-};
+/*Styling*/
 
-export default App;
+import "./App.css";
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <Route exact path="/" component={ExplorePage} />
+          <Route exact path="/Compare" component={Compare} />
+          <Route exact path="/Comparison" component={ComparisonTable} />
+          <Route exact path="/Settings" component={SettingsPage} />
+          <Route exact path="/mobiles/:id" component={MobileDetails} />
+        </Router>
+      </div>
+    );
+  }
+}
