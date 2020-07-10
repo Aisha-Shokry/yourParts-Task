@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 
-/* Bootstrap */
+// Bootstrap 
 import { Button, Container, Row, Col } from "reactstrap";
 
-/* Redux Connection */
+// Redux Connection 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { changeView } from "../../redux/actions/rootActions";
 
 class SettingsPage extends Component {
-  /* Function to Change View */
-
   changeDevicesView = () => {
+    // Function to Change View
     this.props.changeView();
     if (this.props.changed !== undefined) {
     } else {
@@ -51,11 +50,16 @@ class SettingsPage extends Component {
     );
   }
 }
+
+// Redux Action 
 const mapStateToProps = (state) => {
   return { changed: state.changed.changed };
 };
 
+// Redux Action 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ changeView }, dispatch);
 };
+
+// Connect Component With Redux 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsPage);

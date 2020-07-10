@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 
-/* Select library*/
+// libraries
 import makeAnimated from "react-select/animated";
 import { components } from "react-select";
 
-/* BootStrap */
+// BootStrap
 import { Button, Container, Row, Col } from "reactstrap";
 
-/* Components */
+// Components
 import SearchSelects from "../sections/SearchSelects";
 
-/* Router Link */
+// Router Link
 import { Link } from "react-router-dom";
 
-/* Redux Connection */
+// Redux Connection
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getDevices } from "../../redux/actions/rootActions";
@@ -44,10 +44,11 @@ class ComparePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      optionSelected: [] /* Array Of Selected Devices */,
+      optionSelected: [], // Array Of Selected Devices
     };
   }
 
+  // Handle Selected items
   handleChange = (selected) => {
     this.setState({
       optionSelected: selected,
@@ -96,11 +97,15 @@ class ComparePage extends Component {
   }
 }
 
+// Redux State 
 const mapStateToProps = (state) => {
   return { Devices: state.Devices.list };
 };
 
+// Redux Action 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ getDevices }, dispatch);
 };
+
+// Connect Component With Redux 
 export default connect(mapStateToProps, mapDispatchToProps)(ComparePage);

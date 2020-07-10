@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-/* BootStrap */
+// BootStrap 
 import { Navbar, Nav } from "react-bootstrap";
 
-/* Router Links */
+// Router Links 
 import { NavLink } from "react-router-dom";
 
 export default class NavB extends Component {

@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+a,
+img {
+  cursor: pointer !important; 
+}
 
 /******************* NavBar ****************************/
 .navbar-brand img {

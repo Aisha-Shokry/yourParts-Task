@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 
-/* Router Link */
+// Router Link 
 import { Link } from "react-router-dom";
 
-/* BootStrap */
+// BootStrap 
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 export default class LoadMoreView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: 10,
-      error: false,
+      visible: 10, //visible devices
     };
   }
+
+  //Function to load more 10 devices
   loadMore = () => {
     this.setState((prev) => {
-      return { visible: prev.visible + 9 };
+      return { visible: prev.visible + 10 };
     });
   };
 
@@ -25,7 +26,7 @@ export default class LoadMoreView extends Component {
       (device) => {
         return (
           <Col sm={12} md={6} key={device.id}>
-            <Link to={`/mobiles/${device.id}`} style={{ cursor: "pointer" }}>
+            <Link to={`/mobiles/${device.id}`}>
               <img
                 src={device.webformatURL}
                 alt={device.tags}
@@ -43,7 +44,7 @@ export default class LoadMoreView extends Component {
       <Container className="loadMore-Page">
         <Row>{loadMoreDevices}</Row>
         {this.state.visible < this.props.Devices.length && (
-          <div style={{ textAlign: "center" }} className="mt-4 mb-4">
+          <div className="text-center mt-4 mb-4">
             <Button onClick={this.loadMore} className="load-more">
               Load more
             </Button>

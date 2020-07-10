@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+//Library
 import { default as ReactSelect } from "react-select";
 
-const SearchSelects = props => {
+const SearchSelects = (props) => {
   if (props.allowSelectAll) {
     return (
       <ReactSelect
@@ -17,7 +19,7 @@ const SearchSelects = props => {
             if (selected.length === props.options.length) {
               if (selected.includes(props.allOption)) {
                 result = selected.filter(
-                  option => option.value !== props.allOption.value
+                  (option) => option.value !== props.allOption.value
                 );
               } else if (event.action === "select-option") {
                 result = [props.allOption, ...props.options];
@@ -42,15 +44,15 @@ SearchSelects.propTypes = {
   allowSelectAll: PropTypes.bool,
   allOption: PropTypes.shape({
     label: PropTypes.string,
-    value: PropTypes.string
-  })
+    value: PropTypes.string,
+  }),
 };
 
 SearchSelects.defaultProps = {
   allOption: {
     label: "Select all",
-    value: "*"
-  }
+    value: "*",
+  },
 };
 
 export default SearchSelects;

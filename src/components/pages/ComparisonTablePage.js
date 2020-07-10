@@ -1,29 +1,32 @@
 import React, { Component } from "react";
 
-/* Redux Connection */
+// Redux Connection
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getDevices } from "../../redux/actions/rootActions";
 
-/* Bootstrap */
+// Bootstrap
 import { Table, Container } from "react-bootstrap";
 
 class ComparisonTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comparisonArray: [] /*Array of Selected Devices*/,
+      comparisonArray: [], //Array of Selected Devices
     };
   }
   componentDidMount() {
-    this.props.getDevices();
+    this.props.getDevices(); //get all devices from redux store
 
+    // Compare between selected items and all devices returned from api
     if (this.props.Devices !== undefined) {
       this.props.Devices.map((device) => {
         if (this.props.location.selectedvalues !== undefined) {
-          this.props.location.selectedvalues.map((selected) => {
+          return this.props.location.selectedvalues.map((selected) => {
             if (device.user === selected.value) {
-              this.state.comparisonArray.push(device);
+              return this.state.comparisonArray.push(device);
+            } else {
+              return null;
             }
           });
         } else {
@@ -55,7 +58,7 @@ class ComparisonTable extends Component {
             {this.state.comparisonArray
               ? this.state.comparisonArray.map((device, i) => (
                   <tr key={i}>
-                    <td>Device{device.id}</td>
+                    <td>Device #{device.id}</td>
                     <td>{device.id}</td>
                     <td>{device.likes}</td>
                     <td>{device.favorites}</td>
@@ -70,11 +73,15 @@ class ComparisonTable extends Component {
     );
   }
 }
+// Redux State
 const mapStateToProps = (state) => {
   return { Devices: state.Devices.list };
 };
 
+// Redux Action
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ getDevices }, dispatch);
 };
+
+/* Connect Component With Redux */
 export default connect(mapStateToProps, mapDispatchToProps)(ComparisonTable);

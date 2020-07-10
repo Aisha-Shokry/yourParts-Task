@@ -4,6 +4,10 @@ const Devices = (state = {}, action) => {
       return { ...state, list: action.payload };
     }
 
+    case "CAR_DETAILS": {
+      return { ...state, details: action.payload };
+    }
+
     default:
       return state;
   }
