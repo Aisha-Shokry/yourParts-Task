@@ -27,7 +27,7 @@ class SettingsPage extends Component {
           <Row className="ml-5 pl-5">
             <Col md={1} sm={3}>
               <Button onClick={this.changeDevicesView}>
-                <i class="fas fa-toggle-off fa-2x "></i>
+                <i className="fas fa-toggle-off fa-2x "></i>
               </Button>{" "}
             </Col>{" "}
             <Col md={3} sm={6}>
@@ -38,7 +38,7 @@ class SettingsPage extends Component {
           <Row className="ml-5 pl-5">
             <Col md={1} sm={3}>
               <Button onClick={this.changeDevicesView}>
-                <i class="fas fa-toggle-on fa-2x "></i>
+                <i className="fas fa-toggle-on fa-2x "></i>
               </Button>{" "}
             </Col>{" "}
             <Col md={3} sm={6}>
