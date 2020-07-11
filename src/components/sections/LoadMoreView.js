@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-// Router Link 
+// Router Link
 import { Link } from "react-router-dom";
 
-// BootStrap 
+// BootStrap
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 export default class LoadMoreView extends Component {
@@ -45,9 +45,7 @@ export default class LoadMoreView extends Component {
         <Row>{loadMoreDevices}</Row>
         {this.state.visible < this.props.Devices.length && (
           <div className="text-center mt-4 mb-4">
-            <Button onClick={this.loadMore} className="load-more">
-              Load more
-            </Button>
+            <Button onClick={this.loadMore}>Load more</Button>
           </div>
         )}
       </Container>
