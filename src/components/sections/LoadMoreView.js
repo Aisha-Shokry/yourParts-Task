@@ -32,7 +32,6 @@ export default class LoadMoreView extends Component {
                 alt={device.tags}
                 className="img-fluid"
               />
-              ;
             </Link>
             <h5>{device.user}</h5>{" "}
           </Col>
