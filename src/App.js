@@ -11,8 +11,8 @@ import ComparisonTablePage from "./components/pages/ComparisonTablePage";
 import NavB from "./components/layout/NavB";
 
 /*Styling*/
-
 import "./App.css";
+
 export default class App extends Component {
   render() {
     return (
